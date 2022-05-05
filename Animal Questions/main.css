@@ -1,0 +1,23 @@
+body {
+    background-color: floralwhite;
+    padding: 3em;
+}
+
+h1 { 
+    color: dimgrey;
+    font-family: 'Architects Daughter', sans-serif;
+}
+
+p {
+    color: dimgrey;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+input, button {
+    font-family: 'Architects Daughter', sans-serif;
+    background-color: floralwhite;
+}
+
+input:invalid {
+  border: peachpuff solid 2px;
+}

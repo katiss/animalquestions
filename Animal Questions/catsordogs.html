@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>   <!--- My css ---->
+        
+    <link href="main.css" rel="stylesheet">
+        
+        <!--- Google Font ---->
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Nanum+Gothic&display=swap" rel="stylesheet"></head>
+<body>
+    
+<h1>Cats and Dogs</h1>
+
+<p>Are you a cat person, a dog person, or neither?</p>
+
+<input id="q1" type="text" pattern="cat|dog|neither" required>
+<button onclick="catOrDog()">OK</button>
+    <p id="q1info"></p>
+
+<p>How many dogs does Kati have?</p>
+
+<input id="q2" type="number" min="2" max="2" required>
+<button onclick="howMany()">OK</button>
+    <p id="q2info"></p>
+
+<p>How many cats is too many?</p>
+
+<input id="q3" type="number" max="10000" required>
+<button onclick="tooMany()">OK</button>
+    <p id="q3info"></p>
+    
+<p>Type anything.</p>
+
+<input id="q4" type="text" required>
+<button onclick="anything()">OK</button>
+    <p id="q4info"></p>
+    
+
+
+
+<script>
+function catOrDog() {
+  let text;
+  if (document.getElementById("q1").validity.patternMismatch) {
+    text = "Invalid Answer.";
+  } else {
+    text = "Cool!";
+  } 
+  document.getElementById("q1info").innerHTML = text;
+}
+    
+function howMany() {
+  const inpObj = document.getElementById("q2");
+  if (!inpObj.checkValidity()) {
+    document.getElementById("q2info").innerHTML = inpObj.validationMessage;
+  } else {
+    document.getElementById("q2info").innerHTML = "Correct!";
+  } 
+} 
+    
+function tooMany() {
+  let text;
+  if (document.getElementById("q3").validity.rangeOverflow) {
+    text = "Fair. That might be too many.";
+  } else {
+    text = "You can never have too many cats!";
+  } 
+  document.getElementById("q3info").innerHTML = text;
+}
+    
+    
+function anything() {
+  let text;
+  if (document.getElementById("q4").validity.valueMissing) {
+    text = "You didn't type anything.";
+  } else {
+    text = "<img src='images/cake.png' />";
+  } 
+  document.getElementById("q4info").innerHTML = text;
+}
+ 
+</script>
+
+</body>
+</html>
